@@ -9,12 +9,10 @@ export default class Drawer extends Component {
   render() {
     const { links, onChange } = this.props
     return (
-      <aside style={{'background-color': 'dodgerblue'}}>
+      <aside className={'App-drawer'}>
         <header>
-          <div>
-            <Menu/>
-            <img src={logo} alt='logo of omniview'/>
-          </div>
+          <i className={'icon-button'}><Menu/></i>
+          <img src={logo} alt='logo of omniview'/>
         </header>
         <main>
           <nav>
@@ -32,8 +30,8 @@ export default class Drawer extends Component {
           </nav>
         </main>
         <footer>
-          <div onClick={() => onChange('Settings')}>
-            <Settings/>
+          <div className={'settings'} onClick={() => onChange('Settings')}>
+            <i><Settings/></i>
             Settings
           </div>
         </footer>

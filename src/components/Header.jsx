@@ -1,19 +1,29 @@
 import React, { Component } from 'react'
-import { Search, HelpOutline, NotificationsNone } from '@material-ui/icons'
+import Button from 'components/Button'
+import {
+  Add,
+  Search,
+  HelpOutline,
+  NotificationsNone
+} from '@material-ui/icons'
 
 export default class Header extends Component {
   render() {
-    const { additionalElements, user } = this.props
+    const { user } = this.props
     return (
-      <header  style={{'background-color': 'deeppink'}}>
-        <div>
-          {additionalElements}
+      <header className={'App-header'}>
+        <div className={'header-left'}>
+          <Button
+            name={'New transaction'}
+            icon={<Add/>}
+            onClick={name => alert(name)}
+          />
         </div>
-        <div>
-          <Search/>
-          <HelpOutline/>
-          <NotificationsNone/>
-          <div className={'App-profile'}>
+        <div className={'header-right'}>
+          <i className={'icon-button'}><Search/></i>
+          <i className={'icon-button'}><HelpOutline/></i>
+          <i className={'icon-button'}><NotificationsNone/></i>
+          <div className={'header-profile'}>
             {user}
           </div>
         </div>

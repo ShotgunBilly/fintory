@@ -1,2 +1,2 @@
-const BankAccounts = () => 'BankAccounts'
+const BankAccounts = () => 'Bank accounts'
 export default BankAccounts

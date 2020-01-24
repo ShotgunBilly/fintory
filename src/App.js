@@ -34,17 +34,17 @@ class App extends Component {
     activeLink: 'Overview'
   }
 
-  handleChange = ({ key, value }) => {
-    this.setState({ [key]: value })
-  }
+  // handleChange = ({ key, value }) => {
+  //   this.setState({ [key]: value })
+  // }
 
   render () {
     const { activeLink } = this.state
     return (
       <div className='App'>
         <Drawer links={LINKS} onChange={activeLink => this.setState({activeLink})}/>
-        <Header additionalElements={<button/>} user={'GW'}/>
-        <main>
+        <Header user={'GW'}/>
+        <main className={'App-main'}>
           {{
             'Overview': <Overview/>,
             'Bank accounts': <BankAccounts/>,
