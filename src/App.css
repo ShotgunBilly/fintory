@@ -1,6 +1,7 @@
 :root {
   --white: #fff;
   --light-gray: #e7ebf0;
+  --another-shade-of-gray: #e2e7ed;
   --even-lighter-gray: #f3f5f8;
   --gray: #8f9db4;
   --dark-gray: #44475a;
@@ -22,13 +23,34 @@
   color: var(--gray);
 }
 
+.App-card {
+  background-color: var(--white);
+  border: 1px solid var(--another-shade-of-gray);
+  border-radius: 2px;
+}
+
+.App-card header,
+.App-card main {
+  padding: 10px 20px;
+}
+
+.App-card h4 {
+  margin: 0;
+  font-weight: normal;
+}
+
+.App-card hr {
+  height: 1px;
+  background-color: var(--another-shade-of-gray);
+  border: none;
+}
+
 .App-drawer {
   grid-area: drawer;
   display: flex;
   flex-direction: column;
   border-right: 1px solid var(--light-gray);
 }
-
 
 .App-drawer header {
   flex: 0 0 100px;
@@ -180,7 +202,7 @@ i {
   height: 40px;
   overflow: hidden;
   padding: 0 10px;
-  border-radius: 5px;
+  border-radius: 2px;
   background-color: var(--blue);
   transition: background-color 340ms,
               color 340ms;
