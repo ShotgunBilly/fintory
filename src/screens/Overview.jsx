@@ -1,14 +1,24 @@
 import React, { Component } from 'react'
-import Card from 'components/Card'
-// import { Bar } from 'react-chartjs-2'
-// import { ResponsiveBar } from '@nivo/bar'
+import {
+  Card,
+  Header,
+  Main,
+  Footer
+} from 'components/Card'
+import {
+  ChevronLeft,
+  ChevronRight,
+  KeyboardArrowUp,
+  KeyboardArrowDown
+} from '@material-ui/icons'
 import {
   BarChart,
   Bar,
   XAxis,
   YAxis,
-  Tooltip
-} from 'recharts';
+  Tooltip,
+  ResponsiveContainer
+} from 'recharts'
 
 export default class Overview extends Component {
   state = {
@@ -16,38 +26,80 @@ export default class Overview extends Component {
       name: 'SAT',
       lose: 0,
       gain: 0,
-      amt: 0
+      quantity: 0
     }, {
       name: 'MON',
       lose: 0,
       gain: 0,
-      amt: 0
+      quantity: 0
     }, {
       name: 'TUE',
       lose: 0,
       gain: 0,
-      amt: 0
+      quantity: 0
     }, {
       name: 'WED',
       lose: 0,
       gain: 0,
-      amt: 0
+      quantity: 0
     }, {
       name: 'THU',
       lose: 0,
       gain: 0,
-      amt: 0
+      quantity: 0
     }, {
       name: 'FRI',
       lose: 0,
       gain: 0,
-      amt: 0
+      quantity: 0
     }, {
       name: 'SUN',
       lose: 0,
       gain: 0,
-      amt: 0
+      quantity: 0
     }]
+  }
+
+  componentDidMount = () => {
+    setTimeout(() => this.setState({
+      user: {},
+      data: [{
+        name: 'SAT',
+        lose: this.gain(),
+        gain: this.lose(),
+        quantity: this.amount()
+      }, {
+        name: 'MON',
+        lose: this.gain(),
+        gain: this.lose(),
+        quantity: this.amount()
+      }, {
+        name: 'TUE',
+        lose: this.gain(),
+        gain: this.lose(),
+        quantity: this.amount()
+      }, {
+        name: 'WED',
+        lose: this.gain(),
+        gain: this.lose(),
+        quantity: this.amount()
+      }, {
+        name: 'THU',
+        lose: this.gain(),
+        gain: this.lose(),
+        quantity: this.amount()
+      }, {
+        name: 'FRI',
+        lose: this.gain(),
+        gain: this.lose(),
+        quantity: this.amount()
+      }, {
+        name: 'SUN',
+        lose: this.gain(),
+        gain: this.lose(),
+        quantity: this.amount()
+      }]
+    }), 1000)
   }
 
   gain = () => Number(
@@ -60,72 +112,68 @@ export default class Overview extends Component {
 
   amount = () => Math.ceil(Math.random() * 10)
 
-  componentDidMount = () => {
-    setTimeout(() => this.setState({
-      data: [{
-        name: 'SAT',
-        lose: this.gain(),
-        gain: this.lose(),
-        amt: this.amount()
-      }, {
-        name: 'MON',
-        lose: this.gain(),
-        gain: this.lose(),
-        amt: this.amount()
-      }, {
-        name: 'TUE',
-        lose: this.gain(),
-        gain: this.lose(),
-        amt: this.amount()
-      }, {
-        name: 'WED',
-        lose: this.gain(),
-        gain: this.lose(),
-        amt: this.amount()
-      }, {
-        name: 'THU',
-        lose: this.gain(),
-        gain: this.lose(),
-        amt: this.amount()
-      }, {
-        name: 'FRI',
-        lose: this.gain(),
-        gain: this.lose(),
-        amt: this.amount()
-      }, {
-        name: 'SUN',
-        lose: this.gain(),
-        gain: this.lose(),
-        amt: this.amount()
-      }]
-    }), 1000)
-  }
-
   render() {
     const { data } = this.state
 
     return (
       <div className={'overview'}>
         <header className={'highlight'}>
-          <Card style={{'border-top': '5px solid #ff8d36'}}></Card>
+          <Card style={{'border-top': '5px solid #ff8d36'}}>
+            <Main>
+              Test
+            </Main>
+          </Card>
           <Card style={{'border-top': '5px solid #ff213f'}}></Card>
           <Card style={{'border-top': '5px solid #2c78ff'}}></Card>
         </header>
         <main>
-          <Card name={'Aggregated account balance'}>
-            <BarChart
-              width={500}
-              height={300}
-              data={data}
-              margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-              <XAxis dataKey="name"/>
-              <YAxis/>
-              <Tooltip/>
-              <Bar dataKey="gain" fill="#24bd86"/>
-              <Bar dataKey="lose" fill="#ff2850"/>
-            </BarChart>
+          <Card>
+            <Header name={'Aggregated account balance'}>
+              <button className={'button yetAnotherButtonStyle'}>
+                <i><ChevronLeft/></i>
+              </button>
+              <button className={'button yetAnotherButtonStyle'}>
+                <i><ChevronRight/></i>
+              </button>
+              <button className={'button yetAnotherButtonStyle'}>
+                20/09/2018 - 27/09/2018
+              </button>
+              <button className={'button yetAnotherButtonStyle'}>
+                Weekly
+                <div style={{display: 'flex', flexDirection: 'column', marginLeft: 10}}>
+                  <i style={{height: 12, marginTop: -12}}><KeyboardArrowUp/></i>
+                  <i style={{height: 12}}><KeyboardArrowDown/></i>
+                </div>
+              </button>
+            </Header>
+            <Main>
+              <ResponsiveContainer width={'100%'} height={'100%'}>
+                <BarChart data={data} margin={{ left: -10 }}>
+                  <XAxis
+                    dataKey={'name'}
+                    tick={{fill: '#8f9db4', stroke: '#8f9db4', fontSize: 18, strokeWidth: .2}}
+                    tickLine={false}
+                  />
+                  <YAxis
+                    tick={{fill: '#8f9db4', stroke: '#8f9db4', fontSize: 18, strokeWidth: .2}}
+                    tickFormatter={value => String(value).replace(/\d{6}$/, 'M')}
+                    axisLine={false}
+                    tickLine={false}
+                  />
+                  <Tooltip
+                    payload={[{ quantity: 'test', gain: 'test', lose: 'test' }]}
+                  />
+                  <Bar dataKey="gain" fill="#24bd86"/>
+                  <Bar dataKey="lose" fill="#ff2850"/>
+                </BarChart>
+              </ResponsiveContainer>
+            </Main>
           </Card>
-          <Card name={'This is a title'}/>
+          <Card>
+            <Header name={'This is a title'}/>
+            <Main/>
+            <Footer/>
+          </Card>
         </main>
       </div>
     )

@@ -3,10 +3,13 @@
   --light-gray: #e7ebf0;
   --another-shade-of-gray: #e2e7ed;
   --even-lighter-gray: #f3f5f8;
+  --the-grayest-of-them-all: #eff3f8;
+  --grey: #909eb5;
   --gray: #8f9db4;
   --dark-gray: #44475a;
   --pink: #ff79c6;
   --cyan: #8be9fd;
+  --dark-blue: #0b3171;
   --blue: #2c78ff;
   --green: #50fa7b;
   --orange: #ffb86c;
@@ -24,6 +27,8 @@
 }
 
 .App-card {
+  display: flex;
+  flex-flow: column nowrap;
   background-color: var(--white);
   border: 1px solid var(--another-shade-of-gray);
   border-radius: 2px;
@@ -34,15 +39,52 @@
   padding: 10px 20px;
 }
 
+.App-card header {
+  flex: 0 0 auto;
+  order: 1;
+  display: flex;
+}
+
+.App-card header > hr {
+  flex: 0 0 auto;
+}
+
+.App-card header > .actionBar {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .App-card h4 {
+  flex: 0 0 auto;
   margin: 0;
   font-weight: normal;
 }
 
 .App-card hr {
-  height: 1px;
-  background-color: var(--another-shade-of-gray);
+  flex: 0 0 auto;
+  height: .5px;
+  margin: 0;
   border: none;
+  background-color: var(--another-shade-of-gray);
+}
+
+.App-card header + hr {
+  order: 2;
+}
+
+.App-card main + hr {
+  order: 2;
+}
+
+.App-card main {
+  flex: 1 1 auto;
+  order: 3;
+}
+
+.App-card footer {
+  flex: 0 0 auto;
+  order: 5;
 }
 
 .App-drawer {
@@ -210,6 +252,26 @@ i {
   user-select: none;
 }
 
+.button.yetAnotherButtonStyle {
+  font-size: 16px;
+  border-width: 0;
+  color: var(--dark-blue);
+  background-color: var(--the-grayest-of-them-all);
+  line-height: normal;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.button.yetAnotherButtonStyle + .button.yetAnotherButtonStyle {
+  margin-left: 5px;
+}
+
+.button.yetAnotherButtonStyle i {
+  width: 24px;
+  height: 24px;
+  color: var(--grey);
+}
+
 .button:hover {
   background-color: var(--orange);
 }
@@ -269,7 +331,7 @@ i {
   height: 100%;
 }
 
-.overview header.highlight {
+.overview > header.highlight {
   flex: 0 0 120px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -277,7 +339,7 @@ i {
   margin-bottom: 20px;
 }
 
-.overview main {
+.overview > main {
   flex: 1 1 auto;
   display: grid;
   grid-template-rows: repeat(auto-fit, 360px);
