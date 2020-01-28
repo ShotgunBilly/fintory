@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./Style.scss";
 import { Header } from "components/Header";
 import { Drawer } from "components/Drawer";
 import { Overview } from "screens/Overview";

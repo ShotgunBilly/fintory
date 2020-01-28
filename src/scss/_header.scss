@@ -1,0 +1,46 @@
+.App-header {
+  grid-area: header;
+  display: flex;
+  border-bottom: 1px solid var(--light-gray);
+  padding: 20px;
+
+  .header-left {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .header-right {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    & > i {
+      margin-right: 5px;
+    }
+
+    .header-profile {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: var(--light-gray);
+      font-size: 24px;
+      transition: background-color 340ms, color 340ms;
+      cursor: pointer;
+      user-select: none;
+
+      &:hover {
+        color: var(--white);
+        background-color: var(--blue);
+      }
+
+      &:active {
+        color: var(--white);
+        background-color: var(--pink);
+      }
+    }
+  }
+}

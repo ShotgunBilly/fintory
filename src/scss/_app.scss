@@ -1,0 +1,114 @@
+:root {
+  --white: #fff;
+  --light-gray: #e7ebf0;
+  --another-shade-of-gray: #e2e7ed;
+  --even-lighter-gray: #f3f5f8;
+  --the-grayest-of-them-all: #eff3f8;
+  --grey: #525f7f;
+  --gray: #8f9db4;
+  --dark-gray: #44475a;
+  --pink: #ff79c6;
+  --cyan: #8be9fd;
+  --dark-blue: #0b3171;
+  --blue: #2c78ff;
+  --green: #50fa7b;
+  --orange: #ffb86c;
+}
+
+.App {
+  display: grid;
+  grid-template-columns: 333px 4fr;
+  grid-template-rows: 100px auto;
+  grid-template-areas:
+    "drawer header"
+    "drawer main";
+  height: 100vh;
+  color: var(--gray);
+
+  i {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--white);
+  }
+  
+  .icon-button {
+    cursor: pointer;
+    transition: background-color 340ms, color 340ms;
+
+    &:hover {
+      color: var(--white);
+      background-color: var(--blue);
+    }
+
+    &:active {
+      color: var(--white);
+      background-color: var(--pink);
+    }
+  }
+  
+  .button {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: auto;
+    height: 40px;
+    overflow: hidden;
+    padding: 0 10px;
+    border-radius: 2px;
+    background-color: var(--blue);
+    transition: background-color 340ms, color 340ms;
+    cursor: pointer;
+    user-select: none;
+
+    &.yetAnotherButtonStyle {
+      font-size: 16px;
+      border-width: 0;
+      color: var(--dark-blue);
+      background-color: var(--the-grayest-of-them-all);
+      line-height: normal;
+      -webkit-appearance: none;
+      cursor: pointer;
+
+      & + .button.yetAnotherButtonStyle {
+        margin-left: 5px;
+      }
+
+      i {
+        width: 24px;
+        height: 24px;
+        color: var(--gray);
+      }
+    }
+
+    i {
+      color: var(--white);
+      background-color: transparent;
+    }
+
+    &:hover {
+      background-color: var(--orange);
+    }
+
+    &:active {
+      background-color: var(--pink);
+    }
+
+    button {
+      font-size: 16px;
+      border-width: 0;
+      color: var(--white);
+      background-color: transparent;
+      line-height: normal;
+      -webkit-appearance: none;
+      cursor: pointer;
+
+      &:active {
+        border-style: outset;
+      }
+    }
+  }
+}
+
+

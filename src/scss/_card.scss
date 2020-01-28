@@ -1,0 +1,82 @@
+.App-card {
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: var(--white);
+  border: 1px solid var(--another-shade-of-gray);
+  border-radius: 2px;
+
+  header,
+  main {
+    padding: 10px 20px;
+  }
+
+  header {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+  
+    h4 {
+      flex: 0 0 auto;
+      margin: 0;
+      font-weight: normal;
+    }
+
+    & > .actionBar {
+      flex: 1 1 auto;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  hr {
+    flex: 0 0 auto;
+    height: 0.5px;
+    margin: 0;
+    border: none;
+    background-color: var(--another-shade-of-gray);
+  }
+
+  main {
+    flex: 1 1 auto;
+
+    h5 {
+      margin: 0;
+      color: var(--grey);
+      font-weight: normal;
+    }
+
+    p {
+      margin: 5px 0;
+      color: var(--dark-blue);
+      font-size: 20px;
+    }
+  }
+
+  footer {
+    flex: 0 0 auto;
+  }
+}
+
+// flex order
+.App-card {
+  header {
+    order: 1;
+
+    & + hr {
+      order: 2;
+    }
+  }
+
+  main {
+    order: 3;
+
+    & + hr {
+      order: 4;
+    }
+  }
+
+  footer {
+    order: 5;
+  }
+}
