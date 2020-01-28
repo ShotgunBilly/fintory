@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import "./App.css";
-import Header from "components/Header";
-import Drawer from "components/Drawer";
-import Overview from "screens/Overview";
-import BankAccounts from "screens/BankAccounts";
-import TradeFX from "screens/TradeFX";
-import Transactions from "screens/Transactions";
-import Settings from "screens/Settings";
+import { Header } from "components/Header";
+import { Drawer } from "components/Drawer";
+import { Overview } from "screens/Overview";
+import { BankAccounts } from "screens/BankAccounts";
+import { TradeFX } from "screens/TradeFX";
+import { Transactions } from "screens/Transactions";
+import { Settings } from "screens/Settings";
 import {
   Dashboard,
   AccountBalanceWallet,
@@ -39,7 +38,7 @@ Array.prototype.sample = function() {
   return this[Math.floor(Math.random() * this.length)];
 };
 
-class App extends Component {
+export class App extends Component {
   state = {
     activeLink: "Overview",
     user: {
@@ -169,4 +168,3 @@ class App extends Component {
   }
 }
 
-export default App;

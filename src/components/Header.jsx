@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "components/Button";
+import { Button } from "components/Button";
 import {
   Add,
   Search,
@@ -7,7 +7,7 @@ import {
   NotificationsNone
 } from "@material-ui/icons";
 
-const Header = ({ user, onClick }) => {
+export const Header = ({ user, onClick }) => {
   return (
     <header className={"App-header"}>
       <div className={"header-left"}>
@@ -32,5 +32,3 @@ const Header = ({ user, onClick }) => {
     </header>
   );
 };
-
-export default Header;

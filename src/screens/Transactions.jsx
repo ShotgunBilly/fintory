@@ -1,2 +1,1 @@
-const Transactions = () => "Transactions";
-export default Transactions;
+export const Transactions = () => "Transactions";

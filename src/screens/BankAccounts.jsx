@@ -1,2 +1,1 @@
-const BankAccounts = () => "Bank accounts";
-export default BankAccounts;
+export const BankAccounts = () => "Bank accounts";

@@ -2,7 +2,7 @@ import React from "react";
 import logo from "img/omniview_logo.png";
 import { Menu, Settings } from "@material-ui/icons";
 
-const Drawer = ({ links, onChange }) => {
+export const Drawer = ({ links, onChange }) => {
   return (
     <aside className={"App-drawer"}>
       <header>
@@ -34,5 +34,3 @@ const Drawer = ({ links, onChange }) => {
     </aside>
   );
 };
-
-export default Drawer;

@@ -16,6 +16,8 @@ import {
 } from "recharts";
 
 const Overview = ({ data, user: { balance, lastTrade, history } }) => {
+
+export const Overview = ({ data, user: { balance, lastTrade, history } }) => {
   return (
     <div className={"overview"}>
       <header className={"highlight"}>
@@ -143,5 +145,3 @@ const Overview = ({ data, user: { balance, lastTrade, history } }) => {
     </div>
   );
 };
-
-export default Overview;
