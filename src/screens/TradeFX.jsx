@@ -1,2 +1,2 @@
-const TradeFX = () => 'TradeFX'
-export default TradeFX
+const TradeFX = () => "TradeFX";
+export default TradeFX;

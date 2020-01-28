@@ -1,2 +1,2 @@
-const Transactions = () => 'Transactions'
-export default Transactions
+const Transactions = () => "Transactions";
+export default Transactions;

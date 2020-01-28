@@ -1,2 +1,2 @@
-const Settings = () => 'Settings'
-export default Settings
+const Settings = () => "Settings";
+export default Settings;
