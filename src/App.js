@@ -32,7 +32,7 @@ const LINKS = [
   }
 ];
 
-const CURRENCIES = ["USD", "EUR", "NGN", "JPY", "CNY", "KRW", "GBP", "SGD"];
+const CURRENCIES = ["USD", "EUR", "NGN", "JPY", "CNY", "KRW", "GBP"];
 
 Array.prototype.sample = function() {
   return this[Math.floor(Math.random() * this.length)];
@@ -167,4 +167,3 @@ export class App extends Component {
     );
   }
 }
-

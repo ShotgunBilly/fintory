@@ -15,7 +15,15 @@ import {
   ResponsiveContainer
 } from "recharts";
 
-const Overview = ({ data, user: { balance, lastTrade, history } }) => {
+const CONVERSION_RATE = {
+  USD: 362.49,
+  EUR: 400.0091,
+  NGN: 1,
+  JPY: 3.329664,
+  CNY: 52.256084,
+  KRW: 0.307192,
+  GBP: 472.50805
+}; // 28. January 2020 11:00
 
 export const Overview = ({ data, user: { balance, lastTrade, history } }) => {
   return (
@@ -61,7 +69,9 @@ export const Overview = ({ data, user: { balance, lastTrade, history } }) => {
                 })}
             </p>
             {lastTrade &&
-              (lastTrade.value * 362894).toLocaleString("ig-NG", {
+              (
+                lastTrade.value * CONVERSION_RATE[lastTrade.currency]
+              ).toLocaleString("ig-NG", {
                 style: "currency",
                 currency: "NGN",
                 currencyDisplay: "code"
