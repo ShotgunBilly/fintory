@@ -33,9 +33,7 @@ const LINKS = [
   }
 ];
 
-const CURRENCIES = [
-  "USD", "EUR", "NGN", "JPY", "CNY", "KRW", "GBP", "SGD"
-]
+const CURRENCIES = ["USD", "EUR", "NGN", "JPY", "CNY", "KRW", "GBP", "SGD"];
 
 Array.prototype.sample = function() {
   return this[Math.floor(Math.random() * this.length)];
